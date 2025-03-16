@@ -14,14 +14,13 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("How many employees will be registered: ");
-        int n = sc.nextInt();
-
-        List<Employee> list = new ArrayList<>(n);
-
-        for(int i = 0; i < n; i++){
+        List<Employee> list = new ArrayList<>();
+        String option;
+        int i = 0;
+        do {
+            i++;
             System.out.println();
-            System.out.println("Emplyoee #" + (i + 1) + ":");
+            System.out.println("Emplyoee #" + i + ":");
             System.out.print("Id: ");
             int id = sc.nextInt();
             while (hasId(list, id)) {
@@ -34,9 +33,18 @@ public class Main {
             System.out.print("Salary: ");
             Double salary = sc.nextDouble();
 
+
             Employee emp = new Employee(id, name, salary);
             list.add(emp);
-        }
+
+            System.out.println();
+            System.out.print("Do you want to register a new employee: ");
+            option = sc.next().toLowerCase();
+            while (!option.equals("y") && !option.equals("n")){
+                System.out.println("Invalid option! Try again: ");
+                option = sc.next().toLowerCase();
+            }
+        } while (option.equals("y"));
 
         System.out.println();
         System.out.print("Enter the employee ID that will have salary increase: ");
