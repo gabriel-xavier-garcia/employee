@@ -41,7 +41,7 @@ public class Main {
             System.out.print("Do you want to register a new employee: ");
             option = sc.next().toLowerCase();
             while (!option.equals("y") && !option.equals("n")){
-                System.out.println("Invalid option! Try again: ");
+                System.out.print("Invalid option! Try again: ");
                 option = sc.next().toLowerCase();
             }
         } while (option.equals("y"));
